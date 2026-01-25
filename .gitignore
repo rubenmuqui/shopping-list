@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+
+#Database files
+pb_data/
+pb_public/
+
+# Compiled output
+dist/
+.DS_Store
+
+# Logs and environment files
+*.log
+.env

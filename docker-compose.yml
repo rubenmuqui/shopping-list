@@ -1,0 +1,10 @@
+services:
+  backend:
+    image: ghcr.io/muchobien/pocketbase:latest
+    container_name: pocketbase_server
+    restart: always
+    ports:
+      - "1234:8090"
+    volumes:
+      - ./pb_data:/pb/pb_data
+    command: serve --http=0.0.0.0:8090
