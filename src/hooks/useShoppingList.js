@@ -43,11 +43,25 @@ export function useShoppingList() {
       }
   };
 
+  const toggleItem = async (id, currentStatus) => {
+    // Visual trick: update the preview now
+    setItems(prev => prev.map(item => 
+      item.id === id ? { ...item, comprado: !currentStatus } : item
+    ));
+
+    // Send changes in the background
+    try {
+      await api.toggleItem(id, currentStatus);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
   return { 
     items, 
     loading, 
     addItem: add, 
-    toggleItem: api.toggleItem, 
+    toggleItem,
     deleteSelected, 
     clearList, 
     getAvatarUrl: api.getAvatarUrl 
