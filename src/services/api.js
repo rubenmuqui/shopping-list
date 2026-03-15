@@ -1,5 +1,5 @@
 import PocketBase from 'pocketbase';
-const pb = new PocketBase('https://pb.muqui.pp.ua');
+const pb = new PocketBase(process.env.PB_LINK);
 pb.autoCancellation(false);
 
 export const api = {
